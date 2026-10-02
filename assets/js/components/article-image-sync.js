@@ -1,12 +1,12 @@
-// article-image-sync.js — marketingorscience.com
-// Sets article card thumbnail src from the MOS_ARTICLES manifest,
+// article-image-sync.js — example.com
+// Sets article card thumbnail src from the WEBSITESHORTHAND_ARTICLES manifest,
 // keyed by each card's href. Eliminates hardcoded image paths in HTML.
 
 (function () {
     'use strict';
 
     function sync() {
-        var articles = window.MOS_ARTICLES;
+        var articles = window.WEBSITESHORTHAND_ARTICLES;
         if (!articles) return;
 
         var lookup = {};
@@ -21,7 +21,7 @@
         });
     }
 
-    if (window.MOS_ARTICLES) {
+    if (window.WEBSITESHORTHAND_ARTICLES) {
         sync();
     } else {
         window.addEventListener('articlesLoaded', sync, { once: true });

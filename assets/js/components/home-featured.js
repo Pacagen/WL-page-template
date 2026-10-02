@@ -1,10 +1,10 @@
-// home-featured.js — marketingorscience.com
-// Renders the homepage featured banner + article grid from MOS_ARTICLES.
+// home-featured.js — example.com
+// Renders the homepage featured banner + article grid from WEBSITESHORTHAND_ARTICLES.
 
 (function () {
     'use strict';
 
-    var formatDate = window.MOS_formatDate || function (iso) { return iso; };
+    var formatDate = window.WEBSITESHORTHAND_formatDate || function (iso) { return iso; };
 
     // Ranked list: curated popular articles first (by popularRank), then padded
     // with the newest remaining articles so the Most Read carousel always fills.
@@ -201,20 +201,20 @@
         }
 
         // Late-injected content: register with the shared observer + image loaders
-        if (typeof window.MOS_initScrollAnimations === 'function') {
-            window.MOS_initScrollAnimations();
+        if (typeof window.WEBSITESHORTHAND_initScrollAnimations === 'function') {
+            window.WEBSITESHORTHAND_initScrollAnimations();
         }
-        if (typeof window.MOS_initImageLoaders === 'function') {
-            window.MOS_initImageLoaders();
+        if (typeof window.WEBSITESHORTHAND_initImageLoaders === 'function') {
+            window.WEBSITESHORTHAND_initImageLoaders();
         }
     }
 
     function init() {
-        if (window.MOS_ARTICLES) {
-            render(window.MOS_ARTICLES);
+        if (window.WEBSITESHORTHAND_ARTICLES) {
+            render(window.WEBSITESHORTHAND_ARTICLES);
         } else {
             window.addEventListener('articlesLoaded', function () {
-                render(window.MOS_ARTICLES);
+                render(window.WEBSITESHORTHAND_ARTICLES);
             }, { once: true });
         }
     }

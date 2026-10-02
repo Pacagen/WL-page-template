@@ -1,4 +1,4 @@
-// toc.js — marketingorscience.com
+// toc.js — example.com
 // Auto-generates a Table of Contents from .article-body h2 elements.
 // Only renders if >= 3 h2s found. Inserted as first child of .article-body.
 

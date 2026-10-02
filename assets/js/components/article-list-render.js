@@ -1,11 +1,11 @@
-// article-list-render.js — marketingorscience.com
-// Renders all articles into .article-list from MOS_ARTICLES.
+// article-list-render.js — example.com
+// Renders all articles into .article-list from WEBSITESHORTHAND_ARTICLES.
 // Replaces hardcoded cards; works with category-filter.js for filtering.
 
 (function () {
     'use strict';
 
-    var formatDate = window.MOS_formatDate || function (iso) { return iso; };
+    var formatDate = window.WEBSITESHORTHAND_formatDate || function (iso) { return iso; };
 
     function slugifyType(type) {
         return (type || '').toLowerCase().replace(/\s+/g, '-');
@@ -70,11 +70,11 @@
     }
 
     function init() {
-        if (window.MOS_ARTICLES) {
-            render(window.MOS_ARTICLES);
+        if (window.WEBSITESHORTHAND_ARTICLES) {
+            render(window.WEBSITESHORTHAND_ARTICLES);
         } else {
             window.addEventListener('articlesLoaded', function () {
-                render(window.MOS_ARTICLES);
+                render(window.WEBSITESHORTHAND_ARTICLES);
             }, { once: true });
         }
     }

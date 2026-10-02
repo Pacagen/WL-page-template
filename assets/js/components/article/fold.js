@@ -1,5 +1,5 @@
 // fold.js
-// Article hero ("fold") generator for marketingorscience.com
+// Article hero ("fold") generator for example.com
 //
 // Usage:
 //   createFold({
@@ -62,7 +62,7 @@
   }
 
   var formatDate =
-    window.MOS_formatDate ||
+    window.WEBSITESHORTHAND_formatDate ||
     function (iso) {
       return iso;
     };

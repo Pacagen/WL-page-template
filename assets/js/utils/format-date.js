@@ -1,7 +1,7 @@
-// format-date.js — marketingorscience.com
-// Shared date formatter. Exposed as window.MOS_formatDate(iso).
+// format-date.js — example.com
+// Shared date formatter. Exposed as window.WEBSITESHORTHAND_formatDate(iso).
 
-window.MOS_formatDate = function (iso) {
+window.WEBSITESHORTHAND_formatDate = function (iso) {
     try {
         var d = new Date(iso + 'T12:00:00Z');
         return d.toLocaleDateString('en-US', {

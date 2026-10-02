@@ -1,4 +1,4 @@
-// cta-block.js — marketingorscience.com
+// cta-block.js — example.com
 // createCTABlock() → HTMLElement
 // Dark editorial CTA injected after the 3rd h2 in .article-body
 
@@ -12,7 +12,7 @@
         block.innerHTML =
             '<span class="cta-block-kicker">About This Publication</span>' +
             '<p>' +
-                'Marketing or Science publishes independent scientific and clinical evidence reviews — ' +
+                '[WEBSITENAME] publishes independent scientific and clinical evidence reviews — ' +
                 'examining the gap between health and beauty marketing claims and the ' +
                 'scientific literature.' +
             '</p>' +

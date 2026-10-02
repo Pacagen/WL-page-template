@@ -1,4 +1,4 @@
-// category-filter.js — marketingorscience.com
+// category-filter.js — example.com
 // Reads ?category= from URL for category tabs.
 // Type dropdown filters in-page without URL changes.
 // Filters .article-list-item by data-category and data-type (AND logic).
@@ -10,7 +10,7 @@
 
     function populateTypeDropdown(select) {
         var types = {};
-        (window.MOS_ARTICLES || []).forEach(function (a) {
+        (window.WEBSITESHORTHAND_ARTICLES || []).forEach(function (a) {
             if (a.type) { types[a.type] = true; }
         });
         Object.keys(types).sort().forEach(function (type) {

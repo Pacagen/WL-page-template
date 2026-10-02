@@ -1,11 +1,11 @@
-// structured-data.js — marketingorscience.com
-// Injects JSON-LD structured data derived from window.MOS_ARTICLES.
+// structured-data.js — example.com
+// Injects JSON-LD structured data derived from window.WEBSITESHORTHAND_ARTICLES.
 // Loaded by main.js after articles.js resolves.
 
 (function () {
     'use strict';
 
-    var BASE = 'https://marketingorscience.com';
+    var BASE = 'https://example.com';
 
     function getOG(prop) {
         var el = document.querySelector('meta[property="og:' + prop + '"]');
@@ -37,7 +37,7 @@
         injectSchema({
             '@context' : 'https://schema.org',
             '@type'    : 'WebSite',
-            'name'     : 'Marketing or Science',
+            'name'     : '[WEBSITENAME]',
             'url'      : BASE
         });
         return;
@@ -45,9 +45,9 @@
 
     // ── Static indexable pages ──────────────────────────────────────────────
     var staticPages = {
-        '/contact':           'Contact — Marketing or Science',
-        '/corrections':       'Corrections Policy — Marketing or Science',
-        '/using-our-articles':'Using Our Articles — Marketing or Science'
+        '/contact':           'Contact — [WEBSITENAME]',
+        '/corrections':       'Corrections Policy — [WEBSITENAME]',
+        '/using-our-articles':'Using Our Articles — [WEBSITENAME]'
     };
     var cleanPath = pathname.replace(/\/$/, '');
     if (staticPages[cleanPath]) {
@@ -56,7 +56,7 @@
             '@type'     : 'WebPage',
             'name'      : staticPages[cleanPath],
             'url'       : getCanonical(),
-            'isPartOf'  : { '@type': 'WebSite', 'name': 'Marketing or Science', 'url': BASE }
+            'isPartOf'  : { '@type': 'WebSite', 'name': '[WEBSITENAME]', 'url': BASE }
         });
         return;
     }
@@ -72,7 +72,7 @@
                 'url'       : getCanonical(),
                 'worksFor'  : {
                     '@type' : 'Organization',
-                    'name'  : 'Marketing or Science',
+                    'name'  : '[WEBSITENAME]',
                     'url'   : BASE
                 }
             });
@@ -88,12 +88,12 @@
 
     var slug = pathname.replace(/\/$/, '').split('/').pop();
 
-    if (!window.MOS_ARTICLES) return; // articles.js onload guarantees this — safety guard only
+    if (!window.WEBSITESHORTHAND_ARTICLES) return; // articles.js onload guarantees this — safety guard only
 
     var article = null;
-    for (var i = 0; i < window.MOS_ARTICLES.length; i++) {
-        if (window.MOS_ARTICLES[i].slug === slug) {
-            article = window.MOS_ARTICLES[i];
+    for (var i = 0; i < window.WEBSITESHORTHAND_ARTICLES.length; i++) {
+        if (window.WEBSITESHORTHAND_ARTICLES[i].slug === slug) {
+            article = window.WEBSITESHORTHAND_ARTICLES[i];
             break;
         }
     }
@@ -101,7 +101,7 @@
 
     var isEditorial = article.authorSlug === 'editorial';
     var author = isEditorial
-        ? { '@type': 'Organization', 'name': 'Marketing or Science Editorial Team', 'url': BASE + '/experts/editorial/' }
+        ? { '@type': 'Organization', 'name': '[WEBSITENAME] Editorial Team', 'url': BASE + '/experts/editorial/' }
         : { '@type': 'Person', 'name': article.author, 'url': BASE + '/experts/' + article.authorSlug + '/' };
 
     var schema = {
@@ -114,7 +114,7 @@
         'author'        : author,
         'publisher'     : {
             '@type' : 'Organization',
-            'name'  : 'Marketing or Science',
+            'name'  : '[WEBSITENAME]',
             'url'   : BASE,
             'logo'  : { '@type': 'ImageObject', 'url': BASE + '/assets/images/logo/MoS-logo-b.svg' }
         }

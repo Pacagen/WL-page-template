@@ -1,8 +1,8 @@
-// articles.js — marketingorscience.com
+// articles.js — example.com
 // Central article manifest. Powers search, read-more, category filter, and author pages.
-// Exposed as window.MOS_ARTICLES.
+// Exposed as window.WEBSITESHORTHAND_ARTICLES.
 
-window.MOS_ARTICLES = [
+window.WEBSITESHORTHAND_ARTICLES = [
   {
     slug         : 'peptide-buyers-guide',
     relatedSlugs : ['what-are-peptides-explainer', 'peptide-compounding-fda-review', 'aod-9604-fat-loss-peptides'],

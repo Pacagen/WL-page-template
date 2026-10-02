@@ -1,5 +1,5 @@
 // component-init.js
-// Async readiness helper for marketingorscience.com
+// Async readiness helper for example.com
 // Waits for article components (createFold, createArticleFooter) to be
 // available, then fires a callback. Falls back after 2.5 s.
 
@@ -41,7 +41,7 @@
             try {
                 callback();
             } catch (err) {
-                console.error('[MoS] Error initializing components:', err);
+                console.error('[WEBSITENAME] Error initializing components:', err);
             }
         }
 
@@ -65,7 +65,7 @@
                     setTimeout(poll, retryDelay);
                 });
             } else {
-                console.warn('[MoS] Component init timeout — proceeding anyway.');
+                console.warn('[WEBSITENAME] Component init timeout — proceeding anyway.');
                 executeCallback();
             }
         }

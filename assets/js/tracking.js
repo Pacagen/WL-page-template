@@ -8,9 +8,9 @@
     var SCROLL_75_KEY        = 'cvg_scroll_75';
 
     var OUTBOUND_EVENTS = [
-        { domain: 'getreyou.com',      eventName: 'MoS Reyou Click' }, // this maps to ReyouVisit
-        { domain: 'pacagen.com',        eventName: 'MoS Pacagen Click' }, // this maps to PacagenVisit
-        { domain: 'drinkwildtype.com',  eventName: 'MoS Wildtype Click' } //this maps to WildtypeVisit
+        { domain: 'getreyou.com',      eventName: '[WEBSITENAME] Reyou Click' }, // this maps to ReyouVisit
+        { domain: 'pacagen.com',        eventName: '[WEBSITENAME] Pacagen Click' }, // this maps to PacagenVisit
+        { domain: 'drinkwildtype.com',  eventName: '[WEBSITENAME] Wildtype Click' } //this maps to WildtypeVisit
     ];
 
     // Safe wrapper — mirrors CvgOnsite.tsx from headless repo.

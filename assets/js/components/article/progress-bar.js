@@ -1,4 +1,4 @@
-// progress-bar.js — marketingorscience.com
+// progress-bar.js — example.com
 // Appends a reading progress bar to .site-header.
 // Only activates on article pages (checks for .article-body).
 

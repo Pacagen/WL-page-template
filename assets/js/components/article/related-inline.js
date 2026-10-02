@@ -1,8 +1,8 @@
-// related-inline.js — marketingorscience.com
+// related-inline.js — example.com
 // Floated inline "Related" card injected mid-article (after the 2nd h2).
 // Self-resolves the current article from the URL, auto-picks a related post
 // (same author → fallback same category), and honors an optional override:
-//   window.MOS_RELATED_OVERRIDE = ['some-slug', ...]
+//   window.WEBSITESHORTHAND_RELATED_OVERRIDE = ['some-slug', ...]
 // Loaded centrally by main.js on article pages — no per-article HTML edits.
 
 (function () {
@@ -55,7 +55,7 @@
         }
 
         // 1. Manual override wins if provided and resolvable
-        var override = window.MOS_RELATED_OVERRIDE;
+        var override = window.WEBSITESHORTHAND_RELATED_OVERRIDE;
         if (Array.isArray(override) && override.length) {
             var ov = firstResolvable(override);
             if (ov) return ov;
@@ -117,7 +117,7 @@
         var articleBody = document.querySelector('.article-body');
         if (!articleBody) return;
 
-        var articles = window.MOS_ARTICLES;
+        var articles = window.WEBSITESHORTHAND_ARTICLES;
         if (!articles || !articles.length) return;
 
         var current = findCurrent(articles);
@@ -142,13 +142,13 @@
         }
 
         // Register with shared scroll-animation observer if available
-        if (typeof window.MOS_initScrollAnimations === 'function') {
-            window.MOS_initScrollAnimations();
+        if (typeof window.WEBSITESHORTHAND_initScrollAnimations === 'function') {
+            window.WEBSITESHORTHAND_initScrollAnimations();
         }
     }
 
     function init() {
-        if (window.MOS_ARTICLES) {
+        if (window.WEBSITESHORTHAND_ARTICLES) {
             injectRelatedInline();
         } else {
             window.addEventListener('articlesLoaded', injectRelatedInline, { once: true });

@@ -1,5 +1,5 @@
-// author-page.js — marketingorscience.com
-// Reads author slug from URL, filters MOS_ARTICLES, and populates
+// author-page.js — example.com
+// Reads author slug from URL, filters WEBSITESHORTHAND_ARTICLES, and populates
 // .author-articles-list on /authors/{slug}/ pages.
 
 (function () {
@@ -11,7 +11,7 @@
         return match ? match[1] : '';
     }
 
-    var formatDate = window.MOS_formatDate || function (iso) { return iso; };
+    var formatDate = window.WEBSITESHORTHAND_formatDate || function (iso) { return iso; };
 
     function renderArticleItem(article) {
         var a = document.createElement('a');
@@ -64,12 +64,12 @@
         var container = document.querySelector('.author-articles-list');
         if (!container) return;
 
-        if (!window.MOS_ARTICLES || !window.MOS_ARTICLES.length) {
+        if (!window.WEBSITESHORTHAND_ARTICLES || !window.WEBSITESHORTHAND_ARTICLES.length) {
             container.innerHTML = '<p style="color:var(--color-muted)">No articles found.</p>';
             return;
         }
 
-        var articles = window.MOS_ARTICLES
+        var articles = window.WEBSITESHORTHAND_ARTICLES
             .filter(function (a) { return a.authorSlug === authorSlug; })
             .sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
 
@@ -88,7 +88,7 @@
         var authorSlug = getAuthorSlug();
         if (!authorSlug) return;
 
-        if (window.MOS_ARTICLES) {
+        if (window.WEBSITESHORTHAND_ARTICLES) {
             populate(authorSlug);
         } else {
             window.addEventListener('articlesLoaded', function () {

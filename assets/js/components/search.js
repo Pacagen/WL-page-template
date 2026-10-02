@@ -1,6 +1,6 @@
-// search.js — marketingorscience.com
-// Typeahead search over window.MOS_ARTICLES
-// Exposed as window.MOS_Search
+// search.js — example.com
+// Typeahead search over window.WEBSITESHORTHAND_ARTICLES
+// Exposed as window.WEBSITESHORTHAND_Search
 
 (function () {
     'use strict';
@@ -12,13 +12,13 @@
 
     function search(q) {
         var query = q.trim().toLowerCase();
-        if (!query || query.length < MIN_QUERY || !window.MOS_ARTICLES) {
+        if (!query || query.length < MIN_QUERY || !window.WEBSITESHORTHAND_ARTICLES) {
             clearResults();
             return;
         }
 
         var terms = query.split(/\s+/);
-        var results = window.MOS_ARTICLES.filter(function (article) {
+        var results = window.WEBSITESHORTHAND_ARTICLES.filter(function (article) {
             var haystack = [
                 article.title       || '',
                 article.deck        || '',
@@ -128,7 +128,7 @@
         initialized = true;
     }
 
-    window.MOS_Search = {
+    window.WEBSITESHORTHAND_Search = {
         init         : init,
         search       : search,
         clearResults : clearResults

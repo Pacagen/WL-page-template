@@ -1,11 +1,11 @@
-// read-more.js — marketingorscience.com
+// read-more.js — example.com
 // createReadMore(config) → HTMLElement | null
-// Three-tab read-more section powered by window.MOS_ARTICLES
+// Three-tab read-more section powered by window.WEBSITESHORTHAND_ARTICLES
 
 (function () {
     'use strict';
 
-    var formatDate = window.MOS_formatDate || function (iso) { return iso; };
+    var formatDate = window.WEBSITESHORTHAND_formatDate || function (iso) { return iso; };
 
     function sortByDateDesc(a, b) {
         return (b.date || '').localeCompare(a.date || '');
@@ -208,16 +208,16 @@
             return section;
         }
 
-        if (window.MOS_ARTICLES) {
-            return build(window.MOS_ARTICLES);
+        if (window.WEBSITESHORTHAND_ARTICLES) {
+            return build(window.WEBSITESHORTHAND_ARTICLES);
         }
 
         var placeholder = document.createElement('div');
         placeholder.id = 'read-more-placeholder';
 
         window.addEventListener('articlesLoaded', function () {
-            if (!window.MOS_ARTICLES) return;
-            var section = build(window.MOS_ARTICLES);
+            if (!window.WEBSITESHORTHAND_ARTICLES) return;
+            var section = build(window.WEBSITESHORTHAND_ARTICLES);
             if (section && placeholder.parentNode) {
                 placeholder.parentNode.replaceChild(section, placeholder);
             }

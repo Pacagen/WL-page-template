@@ -1,4 +1,4 @@
-// share.js — marketingorscience.com
+// share.js — example.com
 // createShareBar(config) → HTMLElement
 // config { url, title, position: 'inline' | 'footer' }
 
