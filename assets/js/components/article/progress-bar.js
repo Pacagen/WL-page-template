@@ -1,4 +1,4 @@
-// progress-bar.js — example.com
+// progress-bar.js — [WEBSITEURL]
 // Appends a reading progress bar to .site-header.
 // Only activates on article pages (checks for .article-body).
 

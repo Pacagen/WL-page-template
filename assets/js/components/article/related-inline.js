@@ -1,4 +1,4 @@
-// related-inline.js — example.com
+// related-inline.js — [WEBSITEURL]
 // Floated inline "Related" card injected mid-article (after the 2nd h2).
 // Self-resolves the current article from the URL, auto-picks a related post
 // (same author → fallback same category), and honors an optional override:

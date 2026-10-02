@@ -1,4 +1,4 @@
-// search.js — example.com
+// search.js — [WEBSITEURL]
 // Typeahead search over window.WEBSITESHORTHAND_ARTICLES
 // Exposed as window.WEBSITESHORTHAND_Search
 

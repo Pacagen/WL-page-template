@@ -1,4 +1,4 @@
-// read-more.js — example.com
+// read-more.js — [WEBSITEURL]
 // createReadMore(config) → HTMLElement | null
 // Three-tab read-more section powered by window.WEBSITESHORTHAND_ARTICLES
 

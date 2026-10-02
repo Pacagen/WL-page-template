@@ -1,5 +1,5 @@
 // fold.js
-// Article hero ("fold") generator for example.com
+// Article hero ("fold") generator for [WEBSITEURL]
 //
 // Usage:
 //   createFold({
@@ -365,7 +365,7 @@
       document.execCommand("copy");
       callback();
     } catch (e) {
-      console.warn("[MoS] Copy failed:", e);
+      console.warn("[WEBSITESHORTHAND] Copy failed:", e);
     }
     document.body.removeChild(ta);
   }

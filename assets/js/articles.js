@@ -1,4 +1,4 @@
-// articles.js — example.com
+// articles.js — [WEBSITEURL]
 // Central article manifest. Powers search, read-more, category filter, and author pages.
 // Exposed as window.WEBSITESHORTHAND_ARTICLES.
 

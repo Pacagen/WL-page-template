@@ -1,4 +1,4 @@
-// main.js — example.com
+// main.js — [WEBSITEURL]
 // Injects navigation, stylesheet, and footer via IIFE.
 // No framework dependencies; runs before DOMContentLoaded where possible.
 
@@ -31,11 +31,11 @@
 
     // ─── Stylesheet loader ───────────────────────────────────────────────────
     function loadStylesheet() {
-        if (document.querySelector('link[data-[WEBSITESHORTHAND]-css]')) return;
+        if (document.querySelector('link[data-site-css]')) return;
 
         var link = document.createElement('link');
         link.rel            = 'stylesheet';
-        link.dataset.mosCss = '1';
+        link.dataset.siteCss = '1';
         link.href           = assetPath + '/css/style.css';
 
         link.onload = link.onerror = function () {
@@ -56,25 +56,25 @@
         document.head.appendChild(link);
 
         // Favicon — injected once, site-wide
-        if (!document.querySelector('link[data-[WEBSITESHORTHAND]-favicon]')) {
+        if (!document.querySelector('link[data-site-favicon]')) {
             var favicon = document.createElement('link');
             favicon.rel              = 'icon';
             favicon.type             = 'image/svg+xml';
             favicon.href             = assetPath + '/images/logo/favicon.svg';
-            favicon.dataset.mosFavicon = '1';
+            favicon.dataset.siteFavicon = '1';
             document.head.appendChild(favicon);
         }
 
         // Article manifest — WEBSITESHORTHAND_ARTICLES (loaded once, site-wide)
-        if (!document.querySelector('script[data-[WEBSITESHORTHAND]-articles]')) {
+        if (!document.querySelector('script[data-site-articles]')) {
             var manifest = document.createElement('script');
             manifest.src              = assetPath + '/js/articles.js';
-            manifest.dataset.mosArticles = '1';
+            manifest.dataset.siteArticles = '1';
             manifest.onload = function () {
-                if (!document.querySelector('script[data-[WEBSITESHORTHAND]-sd]')) {
+                if (!document.querySelector('script[data-site-sd]')) {
                     var sd = document.createElement('script');
                     sd.src          = assetPath + '/js/structured-data.js';
-                    sd.dataset.mosSd = '1';
+                    sd.dataset.siteSd = '1';
                     document.head.appendChild(sd);
                 }
             };
@@ -82,18 +82,18 @@
         }
 
         // Shared date formatter — loaded before component scripts
-        if (!document.querySelector('script[data-[WEBSITESHORTHAND]-formatdate]')) {
+        if (!document.querySelector('script[data-site-formatdate]')) {
             var fmtDate = document.createElement('script');
             fmtDate.src                  = assetPath + '/js/utils/format-date.js';
-            fmtDate.dataset.mosFormatdate = '1';
+            fmtDate.dataset.siteFormatdate = '1';
             document.head.appendChild(fmtDate);
         }
 
         // Search component — depends on manifest
-        if (!document.querySelector('script[data-[WEBSITESHORTHAND]-search]')) {
+        if (!document.querySelector('script[data-site-search]')) {
             var searchScript = document.createElement('script');
             searchScript.src             = assetPath + '/js/components/search.js';
-            searchScript.dataset.mosSearch = '1';
+            searchScript.dataset.siteSearch = '1';
             searchScript.onload = function () {
                 if (window.WEBSITESHORTHAND_Search && typeof window.WEBSITESHORTHAND_Search.init === 'function') {
                     window.WEBSITESHORTHAND_Search.init();
@@ -105,36 +105,36 @@
         // Inline "Related" cards — article pages only; self-invokes once
         // WEBSITESHORTHAND_ARTICLES is ready. Loaded centrally so existing article HTML
         // needs no per-file edits.
-        if (isInArticles && !document.querySelector('script[data-[WEBSITESHORTHAND]-related-inline]')) {
+        if (isInArticles && !document.querySelector('script[data-site-related-inline]')) {
             var relatedInline = document.createElement('script');
             relatedInline.src = assetPath + '/js/components/article/related-inline.js';
-            relatedInline.dataset.mosRelatedInline = '1';
+            relatedInline.dataset.siteRelatedInline = '1';
             document.head.appendChild(relatedInline);
         }
 
         // Converge custom event tracking
-        if (!document.querySelector('script[data-[WEBSITESHORTHAND]-tracking]')) {
+        if (!document.querySelector('script[data-site-tracking]')) {
             var trackingScript = document.createElement('script');
             trackingScript.src = assetPath + '/js/tracking.js';
-            trackingScript.dataset.mosTracking = '1';
+            trackingScript.dataset.siteTracking = '1';
             document.head.appendChild(trackingScript);
         }
 
         // Google "Preferred Sources" button — publisher.js (loaded once, site-wide)
         // https://developers.google.com/search/docs/appearance/preferred-sources
-        if (!document.querySelector('script[data-[WEBSITESHORTHAND]-preferred-source]')) {
+        if (!document.querySelector('script[data-site-preferred-source]')) {
             var prefSrc = document.createElement('script');
             prefSrc.async = true;
             prefSrc.src   = 'https://news.google.com/swg/js/v1/publisher.js';
-            prefSrc.dataset.mosPreferredSource = '1';
+            prefSrc.dataset.sitePreferredSource = '1';
             document.head.appendChild(prefSrc);
         }
 
         // Google Fonts — Playfair Display, Lora, Inter
-        if (!document.querySelector('link[data-[WEBSITESHORTHAND]-fonts]')) {
+        if (!document.querySelector('link[data-site-fonts]')) {
             var fonts = document.createElement('link');
             fonts.rel          = 'stylesheet';
-            fonts.dataset.mosFonts = '1';
+            fonts.dataset.siteFonts = '1';
             fonts.href         =
                 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap';
             document.head.appendChild(fonts);
@@ -150,7 +150,7 @@
                 '<nav class="site-nav" role="navigation" aria-label="Main navigation">' +
                     '<div class="nav-zone--left">' +
                         '<a href="' + homePath + '" class="site-logo" aria-label="[WEBSITENAME] — Home">' +
-                            '<img class="logo-img logo-img--dark" src="' + assetPath + '/images/logo/MoS-logo-b.svg" alt="[WEBSITENAME]" width="48" height="36">' +
+                            '<img class="logo-img logo-img--dark" src="' + assetPath + '/images/logo/logo-dark.svg" alt="[WEBSITENAME]" width="48" height="36">' +
                         '</a>' +
                     '</div>' +
                     '<div class="nav-zone--right">' +
@@ -183,7 +183,7 @@
                         '</button>' +
 
                         '<a href="' + homePath + '" class="mega-menu-logo" aria-label="[WEBSITENAME] — Home">' +
-                            '<img src="' + assetPath + '/images/logo/MoS-logo-w.svg" alt="[WEBSITENAME]" width="56" height="42">' +
+                            '<img src="' + assetPath + '/images/logo/logo-light.svg" alt="[WEBSITENAME]" width="56" height="42">' +
                         '</a>' +
 
                         '<div class="mega-menu-search">' +
@@ -244,7 +244,7 @@
 
                     '<div class="footer-top">' +
                         '<a href="' + homePath + '" class="footer-wordmark" aria-label="[WEBSITENAME] — Home">' +
-                            '<img src="' + assetPath + '/images/logo/MoS-logo-b.svg" alt="[WEBSITENAME]" class="footer-logo-img">' +
+                            '<img src="' + assetPath + '/images/logo/logo-dark.svg" alt="[WEBSITENAME]" class="footer-logo-img">' +
                         '</a>' +
                         '<p class="footer-descriptor">Clinical evidence reviews for health &amp; beauty claims.</p>' +
                     '</div>' +
@@ -284,22 +284,22 @@
                         '<div class="footer-col footer-col--newsletter">' +
                             '<h3 class="footer-col-heading">Stay Informed</h3>' +
                             '<div class="footer-social" aria-label="Follow us">' +
-                                '<a class="footer-social-link" href="https://www.instagram.com/example/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">' +
+                                '<a class="footer-social-link" href="[INSTAGRAM_URL]" target="_blank" rel="noopener noreferrer" aria-label="Instagram">' +
                                     '<svg class="footer-social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false">' +
                                         '<path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 01-1.38-.9 3.72 3.72 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.36 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.12A5.92 5.92 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 105.84 12 6.16 6.16 0 0012 5.84zm0 10.16A4 4 0 1116 12a4 4 0 01-4 4zm6.41-10.4a1.44 1.44 0 11-1.44-1.44 1.44 1.44 0 011.44 1.44z"/>' +
                                     '</svg>' +
                                 '</a>' +
-                                '<a class="footer-social-link" href="https://www.youtube.com/@example/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">' +
+                                '<a class="footer-social-link" href="[YOUTUBE_URL]" target="_blank" rel="noopener noreferrer" aria-label="YouTube">' +
                                     '<svg class="footer-social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false">' +
                                         '<path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 00.5 6.19C0 8.08 0 12 0 12s0 3.92.5 5.81a3.02 3.02 0 002.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 002.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/>' +
                                     '</svg>' +
                                 '</a>' +
-                                '<a class="footer-social-link" href="https://x.com/example" target="_blank" rel="noopener noreferrer" aria-label="X">' +
+                                '<a class="footer-social-link" href="[X_URL]" target="_blank" rel="noopener noreferrer" aria-label="X">' +
                                     '<svg class="footer-social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false">' +
                                         '<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>' +
                                     '</svg>' +
                                 '</a>' +
-                                '<a class="footer-social-link" href="https://example.substack.com/" target="_blank" rel="noopener noreferrer" aria-label="Substack">' +
+                                '<a class="footer-social-link" href="[SUBSTACK_URL]" target="_blank" rel="noopener noreferrer" aria-label="Substack">' +
                                     '<svg class="footer-social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false">' +
                                         '<path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812H22.54V24l-10.54-5.91L1.46 24V10.812zM22.539 0H1.46v2.836h21.08V0z"/>' +
                                     '</svg>' +
@@ -320,7 +320,7 @@
                 '</div>' +
 
             '<div class="footer-bottom">' +
-                '<p class="footer-copy">&copy; ' + year + ' example.com. All rights reserved.</p>' +
+                '<p class="footer-copy">&copy; ' + year + ' [WEBSITEURL]. All rights reserved.</p>' +
                 '<nav class="footer-legal-nav" aria-label="Legal navigation">' +
                     '<a href="' + privacyPath + '">Privacy Policy</a>' +
                     '<a href="/terms">Terms of Use</a>' +
@@ -337,7 +337,7 @@
                 e.preventDefault();
                 var input = form.querySelector('.footer-newsletter-input');
                 var email = input && input.value ? input.value.trim() : '';
-                var base  = 'https://example.substack.com/subscribe';
+                var base  = '[SUBSTACK_URL]/subscribe';
                 var url   = email ? base + '?email=' + encodeURIComponent(email) : base;
                 window.open(url, '_blank', 'noopener');
             });

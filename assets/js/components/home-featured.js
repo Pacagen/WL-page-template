@@ -1,4 +1,4 @@
-// home-featured.js — example.com
+// home-featured.js — [WEBSITEURL]
 // Renders the homepage featured banner + article grid from WEBSITESHORTHAND_ARTICLES.
 
 (function () {

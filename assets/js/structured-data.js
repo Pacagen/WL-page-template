@@ -1,11 +1,11 @@
-// structured-data.js — example.com
+// structured-data.js — [WEBSITEURL]
 // Injects JSON-LD structured data derived from window.WEBSITESHORTHAND_ARTICLES.
 // Loaded by main.js after articles.js resolves.
 
 (function () {
     'use strict';
 
-    var BASE = 'https://example.com';
+    var BASE = 'https://[WEBSITEURL]';
 
     function getOG(prop) {
         var el = document.querySelector('meta[property="og:' + prop + '"]');
@@ -116,7 +116,7 @@
             '@type' : 'Organization',
             'name'  : '[WEBSITENAME]',
             'url'   : BASE,
-            'logo'  : { '@type': 'ImageObject', 'url': BASE + '/assets/images/logo/MoS-logo-b.svg' }
+            'logo'  : { '@type': 'ImageObject', 'url': BASE + '/assets/images/logo/logo-dark.svg' }
         }
     };
 

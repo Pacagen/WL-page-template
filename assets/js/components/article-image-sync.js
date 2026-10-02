@@ -1,4 +1,4 @@
-// article-image-sync.js — example.com
+// article-image-sync.js — [WEBSITEURL]
 // Sets article card thumbnail src from the WEBSITESHORTHAND_ARTICLES manifest,
 // keyed by each card's href. Eliminates hardcoded image paths in HTML.
 

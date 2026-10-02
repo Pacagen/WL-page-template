@@ -1,4 +1,4 @@
-// article-list-render.js — example.com
+// article-list-render.js — [WEBSITEURL]
 // Renders all articles into .article-list from WEBSITESHORTHAND_ARTICLES.
 // Replaces hardcoded cards; works with category-filter.js for filtering.
 

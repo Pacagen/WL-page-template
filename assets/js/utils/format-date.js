@@ -1,4 +1,4 @@
-// format-date.js — example.com
+// format-date.js — [WEBSITEURL]
 // Shared date formatter. Exposed as window.WEBSITESHORTHAND_formatDate(iso).
 
 window.WEBSITESHORTHAND_formatDate = function (iso) {

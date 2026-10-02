@@ -1,4 +1,4 @@
-# _redirects — example.com
+# _redirects — [WEBSITEURL]
 # Netlify clean URL rewrites: strip .html extension from all page URLs.
 # The browser sees /about, /privacy-policy, /articles/skincare/2026/04/retinol-paradox
 # The server serves the corresponding .html file (200, not a redirect).

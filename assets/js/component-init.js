@@ -1,5 +1,5 @@
 // component-init.js
-// Async readiness helper for example.com
+// Async readiness helper for [WEBSITEURL]
 // Waits for article components (createFold, createArticleFooter) to be
 // available, then fires a callback. Falls back after 2.5 s.
 

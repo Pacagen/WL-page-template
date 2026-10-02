@@ -1,4 +1,4 @@
-// share.js — example.com
+// share.js — [WEBSITEURL]
 // createShareBar(config) → HTMLElement
 // config { url, title, position: 'inline' | 'footer' }
 
@@ -99,7 +99,7 @@
             document.execCommand('copy');
             callback();
         } catch (e) {
-            console.warn('[MoS] Copy failed:', e);
+            console.warn('[WEBSITESHORTHAND] Copy failed:', e);
         }
         document.body.removeChild(ta);
     }

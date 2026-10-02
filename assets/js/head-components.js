@@ -1,5 +1,5 @@
 // head-components.js
-// FOUC prevention for example.com
+// FOUC prevention for [WEBSITEURL]
 // Include in <head> before other scripts
 
 (function() {
@@ -27,22 +27,27 @@
         }
     }
 
+    // Replace [CONVERGE_PIXEL_URL] with the full https script URL before launch.
+    // Until then the pixel does not load, so a fork cannot send traffic to another site.
+    var CONVERGE_PIXEL_SRC = '[CONVERGE_PIXEL_URL]';
+
     function initConvergeTracking() {
         if (window.cvg) return;
 
-        // Load pixel first so download starts immediately
-        const script = document.createElement('script');
-        // NEED TO UPDATE THIS WITH NEW CONVERGE PIXEL SCRIPT URL
-        script.src = 'https://static.runconverge.com/pixels/j4pRsz.js';
+        var c = window.cvg = function () {
+            c.process ? c.process.apply(c, arguments) : c.queue.push(arguments);
+        };
+        c.queue = [];
+
+        if (!/^https:\/\//.test(CONVERGE_PIXEL_SRC)) {
+            c.process = function () {};
+            return;
+        }
+
+        var script = document.createElement('script');
+        script.src = CONVERGE_PIXEL_SRC;
         script.async = true;
         document.head.appendChild(script);
-
-        // Official queue shim — assigns to both window.cvg and local c
-        // so j4pRsz.js can find and drain the queue when it loads
-        var c;
-        window.cvg || (c = window.cvg = function() {
-            c.process ? c.process.apply(c, arguments) : c.queue.push(arguments)
-        }, c.queue = []);
 
         cvg({ method: "track", eventName: "$page_load" });
     }

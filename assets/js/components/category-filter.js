@@ -1,4 +1,4 @@
-// category-filter.js — example.com
+// category-filter.js — [WEBSITEURL]
 // Reads ?category= from URL for category tabs.
 // Type dropdown filters in-page without URL changes.
 // Filters .article-list-item by data-category and data-type (AND logic).

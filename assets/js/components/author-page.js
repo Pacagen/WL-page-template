@@ -1,4 +1,4 @@
-// author-page.js — example.com
+// author-page.js — [WEBSITEURL]
 // Reads author slug from URL, filters WEBSITESHORTHAND_ARTICLES, and populates
 // .author-articles-list on /authors/{slug}/ pages.
 

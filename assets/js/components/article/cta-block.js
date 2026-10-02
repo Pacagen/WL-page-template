@@ -1,4 +1,4 @@
-// cta-block.js — example.com
+// cta-block.js — [WEBSITEURL]
 // createCTABlock() → HTMLElement
 // Dark editorial CTA injected after the 3rd h2 in .article-body
 
